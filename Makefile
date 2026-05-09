@@ -1,5 +1,5 @@
 main: main.o ops.o tensor.o stack.o
-	gcc -g S^ -o $@
+	gcc -g $^ -o $@
 
 %.o: %.c
 	gcc -c $<
