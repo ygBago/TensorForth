@@ -2,6 +2,7 @@
 #define TENSOR_H 
 #define MAX_DIM 2
 
+#include <stdlib.h>
 #include <stdio.h> // fare un header per le lib????
 #include <sys/types.h> // per off_t
 
@@ -15,7 +16,8 @@ typedef struct Tensor {
     //off_t offset; // per skippare i metadati nella lettura delle immagini da file, LO FARA LA FUNZIONE MADRE
 } Tensor;
 
-int initialize_tensor(Tensor *t, int ndim, int *shape, float *data); // inizializza un tensore con le dimensioni specificate, alloca la memoria per i dati e setta refcount a 1
+//int initialize_tensor(Tensor *t, int ndim, int *shape, float *data); // inizializza un tensore con le dimensioni specificate, alloca la memoria per i dati e setta refcount a 1
+Tensor *initialize_tensor(FILE *f,int mode); // mode 0 se è file 1 se da operazioni
 int tensor_delete(Tensor *t); // dealloca la memoria del tensore
 int increment_refcount(Tensor *t); // aggiorna il refcount del tensore, 
 int decrement_refcount(Tensor *t); // aggiorna il refcount del tensore,  se refcount arriva a 0 dealloca il tensore

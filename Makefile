@@ -15,4 +15,4 @@ tensor.o: tensor.c tensor.h
 .PHONY: all clean
 
 clean: 
-	rm *.0
+	rm *.o
